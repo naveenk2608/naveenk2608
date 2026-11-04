@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" role="img" aria-label="Animated diagram: a Node.js API at the centre exchanging requests with React, Express, MySQL, MongoDB and AWS">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1120"/>
+      <stop offset="1" stop-color="#0f2a3b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <radialGradient id="core" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <style>
+    .ring   { fill: none; stroke: #23465a; stroke-width: 1.5; stroke-dasharray: 3 9;
+              transform-origin: 180px 180px; animation: spin 30s linear infinite; }
+    .ring2  { fill: none; stroke: #1b3647; stroke-width: 1; }
+    .spoke  { stroke: #23465a; stroke-width: 2; }
+    .pulse  { stroke: url(#accent); stroke-width: 3; stroke-linecap: round;
+              stroke-dasharray: 6 40; animation: out 1.6s linear infinite; }
+    .back   { animation-name: in; }
+    .sat    { fill: #0e2131; stroke: #38bdf8; stroke-width: 2; }
+    .hex    { fill: #0f2738; stroke: url(#accent); stroke-width: 3; }
+    .halo   { fill: url(#core); transform-origin: 180px 180px; animation: breathe 2.6s ease-in-out infinite; }
+    .orbit  { transform-origin: 180px 180px; animation: spin 9s linear infinite; }
+    .t      { font: 600 11px 'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif; fill: #c9d1d9;
+              text-anchor: middle; dominant-baseline: central; }
+    .big    { font: 800 24px 'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif; fill: #e6edf3;
+              text-anchor: middle; dominant-baseline: central; }
+    .small  { font: 500 11px Consolas, 'Fira Code', Menlo, 'DejaVu Sans Mono', monospace; fill: #2dd4bf;
+              text-anchor: middle; dominant-baseline: central; }
+    @keyframes spin    { to { transform: rotate(360deg); } }
+    @keyframes out     { from { stroke-dashoffset: 46; } to { stroke-dashoffset: 0; } }
+    @keyframes in      { from { stroke-dashoffset: 0; } to { stroke-dashoffset: 46; } }
+    @keyframes breathe { 0%, 100% { transform: scale(0.85); opacity: 0.6; } 50% { transform: scale(1.1); opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+
+  <rect width="360" height="360" rx="24" fill="url(#bg)"/>
+  <rect x="1" y="1" width="358" height="358" rx="23" fill="none" stroke="#1f3b4d" stroke-width="2"/>
+
+  <circle cx="180" cy="180" r="146" class="ring2"/>
+  <circle cx="180" cy="180" r="120" class="ring"/>
+
+  <!-- spokes from the API to each part of the stack -->
+  <line class="spoke" x1="180"   y1="130"   x2="180"   y2="86"/>
+  <line class="spoke" x1="227.6" y1="164.6" x2="269.4" y2="151"/>
+  <line class="spoke" x1="209.4" y1="220.5" x2="235.3" y2="256"/>
+  <line class="spoke" x1="150.6" y1="220.5" x2="124.7" y2="256"/>
+  <line class="spoke" x1="132.4" y1="164.6" x2="90.6"  y2="151"/>
+
+  <line class="pulse"      x1="180"   y1="130"   x2="180"   y2="86"/>
+  <line class="pulse back" x1="227.6" y1="164.6" x2="269.4" y2="151"   style="animation-delay:-0.4s"/>
+  <line class="pulse"      x1="209.4" y1="220.5" x2="235.3" y2="256"   style="animation-delay:-0.8s"/>
+  <line class="pulse back" x1="150.6" y1="220.5" x2="124.7" y2="256"   style="animation-delay:-1.2s"/>
+  <line class="pulse"      x1="132.4" y1="164.6" x2="90.6"  y2="151"   style="animation-delay:-0.2s"/>
+
+  <!-- a request travelling around the orbit -->
+  <g class="orbit">
+    <circle cx="300" cy="180" r="4.5" fill="#2dd4bf"/>
+    <circle cx="60"  cy="180" r="3"   fill="#38bdf8" opacity="0.8"/>
+  </g>
+
+  <!-- API core -->
+  <circle cx="180" cy="180" r="70" class="halo"/>
+  <polygon class="hex" points="180,132 221.6,156 221.6,204 180,228 138.4,204 138.4,156"/>
+  <text x="180" y="172" class="big">API</text>
+  <text x="180" y="196" class="small">node.js</text>
+
+  <!-- services -->
+  <circle cx="180"   cy="60"    r="27" class="sat"/><text x="180"   y="60"    class="t">React</text>
+  <circle cx="294.1" cy="142.9" r="27" class="sat"/><text x="294.1" y="142.9" class="t">Express</text>
+  <circle cx="250.5" cy="277.1" r="27" class="sat"/><text x="250.5" y="277.1" class="t">MySQL</text>
+  <circle cx="109.5" cy="277.1" r="27" class="sat"/><text x="109.5" y="277.1" class="t">MongoDB</text>
+  <circle cx="65.9"  cy="142.9" r="27" class="sat"/><text x="65.9"  y="142.9" class="t">AWS</text>
+</svg>
